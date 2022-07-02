@@ -1,0 +1,96 @@
+# Returns of functions
+
+newvar RTOF
+newvar RTOF2
+newvar RTOF3
+
+# Pramametres of functions
+
+newvar PROF
+newvar PROF2
+newvar PROF3
+
+# Display data
+
+newarray Display_Data_Low size 96
+newarray Display_Data_Mid size 96
+newarray Display_Data_High size 96
+
+# Divides two numbers with a remainder
+# RTOF = PROF / PROF2
+# RTOF2 = mod(PROF, PROF2)
+
+macro Div then
+    newvar num
+    newvar mod10
+    newvar divisor
+
+    num set PROF
+    mod10 set 0
+    divisor set PROF2
+    
+    for i from 0 to 16 then
+        shiftleft num mod10 stop
+        if mod10 >= divisor then
+            num add 1
+            mod10 sub divisor
+        end
+    end
+    RTOF set num
+    RTOF2 set mod10
+end
+
+# Multiplies two numbers
+# PROF * PROF2
+
+macro Mul then
+    newvar num
+    newvar multiplier
+    newvar nummul
+
+    num set 0
+    nummul set PROF
+    multiplier set PROF2
+
+    while multiplier > 0 then
+        num add nummul
+        multiplier sub 1
+    end
+    
+    RTOF set num
+end
+
+# Takes all the display arrays and outputs them to the screen column by column
+
+macro DisplayAll then
+    newvar temp
+    newvar temp2
+    for i from 0 to 96 then
+        temp get Display_Data_Low index i
+        output LOW temp
+        temp get Display_Data_Mid index i
+        output MID temp
+        temp get Display_Data_High index i
+        output HIGH temp
+        temp2 set i
+        temp2 add 1
+        show temp2
+    end
+end
+
+# Prints HI to the screen
+
+Display_Data_High index 95 set -b1111100000000000
+Display_Data_High index 94 set -b0010000000000000
+Display_Data_High index 93 set -b1111100000000000
+
+# Jump over one index to leave a gap between letters
+
+Display_Data_High index 91 set -b1000100000000000
+Display_Data_High index 90 set -b1111100000000000
+Display_Data_High index 89 set -b1000100000000000
+
+# Calls display function
+
+call DisplayAll
+

@@ -1,0 +1,75 @@
+
+######################################
+              VARIABLES
+######################################
+
+newvar {UNKNOWN}
+
+{UNKNOWN} set {UNKNOWN/INT/BINNARY}
+{UNKNOWN} add {UNKNOWN/INT/BINNARY}
+{UNKNOWN} sub {UNKNOWN/INT/BINNARY}
+
+
+######################################
+                OUTPUT
+######################################
+
+show {variable/INT}
+output {HIGH/MID/LOW} {BINNARY}
+
+
+######################################
+             CONDITIONALS
+######################################
+
+if {UNKNOWN/INT/BINNARY} {OP} {UNKNOWN/INT/BINNARY} then
+    ...
+end
+
+
+######################################
+                LOOPING
+######################################
+
+for {UNKNOWN} from {UNKNOWN/INT/BINNARY} to {UNKNOWN/INT/BINNARY} then
+    ...
+end
+
+while {UNKNOWN/INT/BINNARY} {OP} {UNKNOWN/INT/BINNARY} then
+    ...
+end
+
+
+######################################
+              FUNCTIONS
+######################################
+
+macro {UNKNOWN} then
+    ...
+end
+
+call {UNKNOWN}
+
+
+######################################
+              ROTATIONS
+######################################
+
+rotateleft {UNKNOWN}
+shiftleft {UNKNOWN}* stop
+
+
+######################################
+                ARRAYS
+######################################
+
+newarray {UNKNOWN} size {INT}
+{UNKNOWN} index {INT/UNKNOWN} set {INT/UNKNOWN}
+{UNKNOWN} get {UNKNOWN} index {INT/UNKNOWN}
+
+######################################
+                INPUTS
+######################################
+
+input {UNKNOWN}
+
