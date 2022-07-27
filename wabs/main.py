@@ -546,10 +546,10 @@ def Compile(comp, _vars, _pointer, _line, _prog, _macros) -> tuple:
                 vars.update({c['value'][0][0]: pointer})
                 pointer += 1
                 if isinstance(c['value'][0][2], int):
-                    compiled += f'rda {vars[c["value"][0][0]]}; \nldb {c["value"][0][2]}; \nsta {vars[c["value"][0][0]]}; \n'
+                    compiled += f'lda {c["value"][0][2]}; \nsta {vars[c["value"][0][0]]}; \n'
                 else:
-                    compiled += f'rda {vars[c["value"][0][0]]}; \nrdb {vars[c["value"][0][2]]}; \nsta {vars[c["value"][0][0]]}; \n'
-                prog += 3
+                    compiled += f'rda {vars[c["value"][0][2]]}; \nsta {vars[c["value"][0][0]]}; \n'
+                prog += 2
                 part = Compile(c['value'][1], vars, pointer, line, int(prog)+5, macros)
 
                 if isinstance(c["value"][0][4], int):
